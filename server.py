@@ -28,7 +28,7 @@ app = FastAPI()
 @app.get("/")
 async def index():
     """
-    The index function is the main page of the website.
+    The index function is the root page of the server
     
     :return: dict
     """
@@ -41,7 +41,7 @@ async def webhook(request: Request):
     The webhook function is used to send a notification to a discord channel
     
     :param request:Request: Used to get the request body.
-    :return: a json object that is used to determine what to do with the webhook data.
+    :return: a json object that is used to determine what to do with the webhook data
     """
     data = await request.json()
     web_hook(
