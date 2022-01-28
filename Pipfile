@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+gunicorn = "*"
+discord-webhook = "*"
+
+[dev-packages]
+pylint = "*"
+black = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.10"
+
+['scripts']
+clean-env = "pipenv clean"
+server = "python server.py"
