@@ -31,11 +31,10 @@ resource "heroku_build" "discord-webhook-server" {
   app_id = heroku_app.discord-webhook-server.id
 
   source {
-    path    = "./"
+    url     = var.code_source_url
     version = var.app_version
   }
 
-  buildpacks = ["heroku/python"]
 
   lifecycle {
     create_before_destroy = true
@@ -56,8 +55,8 @@ resource "heroku_app_release" "discord-webhook-server" {
 }
 
 resource "heroku_slug" "discord-webhook-server" {
-  app_id    = heroku_app.discord-webhook-server.id
-  file_path = "./"
+  app_id                         = heroku_app.discord-webhook-server.id
+  file_url                       = var.code_source_url
   buildpack_provided_description = "heroku/python"
   process_types = {
     web = "gunicorn -w 4 -k uvicorn.workers.UvicornWorker src.server:app"

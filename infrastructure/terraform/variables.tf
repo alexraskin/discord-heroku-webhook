@@ -49,3 +49,7 @@ variable "dyno_size" {
   description = "Size of dyno"
   default     = "free"
 }
+
+variable "code_source_url" {
+  type = string
+}
